@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+#define MAXSIZE 100
+typedef int Elemtype;
+typedef struct{
+	Elemtype *elem;
+	int length; 
+}SqList;
+
+void InitList(SqList &L){
+	L.elem=new Elemtype[MAXSIZE];
+	L.length=0;	
+	return;
+}
+void Input(SqList &L){
+	cout<<"请输入数据个数：";
+	int n;
+	cin>>n;
+	cout<<"请输入数据: ";
+    for(int i=0;i<n;i++){
+    	cin>>L.elem[i];
+	} 
+	L.length=n;
+	cout<<endl;
+	return;
+}
+void Output(SqList L){
+	//cout<<"顺序列表为："; 
+	for(int i=0;i<L.length;i++){
+		if(i==0) cout<<L.elem[i];
+		else cout<<" "<<L.elem[i];
+	} 
+	return;
+}
+
+int main(){
+	SqList L;
+	InitList(L);
+	Input(L);
+	Output(L);
+	return 0;
+}
