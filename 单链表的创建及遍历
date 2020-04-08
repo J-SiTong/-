@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+typedef struct LNode{
+	int data;
+	struct LNode *next;
+}LNode,*List;
+
+void InitList(List &L){
+	L=new LNode;
+	L->next=NULL;
+}
+void Input(List &L,int n){
+	int i;
+	cout<<"请输入"<<n<<"个数： ";
+	LNode *p,*r;
+	r=L;
+	for(i=0;i<n;i++){
+		p=new LNode;
+		cin>>p->data;
+		p->next=NULL;
+		r->next=p;
+		r=p;
+	} 
+}
+void Output(List L){
+	LNode *p;
+	p=L->next;
+	cout<<p->data;
+	p=p->next;
+	while(p!=NULL){
+		cout<<" "<<p->data;
+		p=p->next;
+	}
+}
+
+int main(){
+	List L;
+	int n;
+	cout<<"请输入数据个数； ";
+	cin>>n;
+	InitList(L);
+	Input(L,n);
+	Output(L);
+	return 0; 
+}
